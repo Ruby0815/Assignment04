@@ -1,48 +1,42 @@
-function getUserChoice() {
-    let choice = prompt(
-      "Enter your choice: rock, paper, or scissors"
-    ).toLowerCase();
-    return choice;
+var userChoice;
+
+userChoice = prompt(
+    "Enter your choice: rock, paper, or scissors"
+  ).toLowerCase();
+let computerChoice = Math.floor(Math.random() * 10 + 1);
+
+if (computerChoice <= 3) {
+  computerChoice = "rock";
+} else if (computerChoice <= 6) {
+  computerChoice = "paper";
+} else {
+  computerChoice = "scissors";
+}
+
+console.log("computer Choice: " + computerChoice);
+
+if (userChoice === computerChoice) {
+  console.log("user Choice: " + userChoice);
+  console.log("computer Choice: " + computerChoice);
+  alert('It\'s a tie!');
+} else if (userChoice === "rock") {
+  if (computerChoice === "scissors") {
+    alert('You win! The computer picked scissors.');
+  } else {
+    alert('You lose! The computer picked paper.');
   }
-  function getComputerChoice() {
-    const choices = ["rock", "paper", "scissors"];
-    const randomIndex = Math.floor(Math.random() * choices.length);
-    return choices[randomIndex];
+} else if (userChoice === "paper") {
+  if (computerChoice === "rock") {
+    alert('You win! The computer picked rock.');
+  } else {
+    alert('You lose! The computer picked scissors.');
   }
-  function isValidChoice(choice) {
-    const validChoices = ["rock", "paper", "scissors"];
-    return validChoices.includes(choice);
+} else if (userChoice === "scissors") {
+  if (computerChoice === "paper") {
+    alert('You win! The computer picked paper.');
+  } else {
+    alert('You lose! The computer picked rock.');
   }
-  
-  function determineWinner(userChoice, computerChoice) {
-    if (userChoice === computerChoice) {
-      return "It's a tie!";
-    } else if (
-      (userChoice === "rock" && computerChoice === "scissors") ||
-      (userChoice === "scissors" && computerChoice === "paper") ||
-      (userChoice === "paper" && computerChoice === "rock")
-    ) {
-      return "You win!";
-    } else {
-      return "Computer wins!";
-    }
-  }
-  function playGame() {
-    const userChoice = getUserChoice();
-    if (!isValidChoice(userChoice)) {
-      alert("Invalid choice. Please choose rock, paper, or scissors.");
-      return;
-    }
-    const computerChoice = getComputerChoice();
-  
-    alert(
-      `You chose ${userChoice}.\nThe computer chose ${computerChoice}.\n${determineWinner(
-        userChoice,
-        computerChoice
-      )}`
-    );
-  }
-  
-  playGame();
-  
-  
+} else {
+  alert('Invalid choice. Please choose rock, paper, or scissors.');
+}
