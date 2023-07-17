@@ -1,11 +1,13 @@
 //STEP 1
-let number = 6;
+
 function halfNumber(no){
 result = no/2;
 return result;
 }
+let number=5
+console.log("Half of "+ number +" is: "+halfNumber(number));
 //halfNumber(number);
-console.log("Half of "+ number +" is: "+halfNumber(6));
+
 //STEP 2
 let sq=3;
 function squareNumber(number){
