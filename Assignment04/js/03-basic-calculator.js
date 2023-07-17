@@ -25,6 +25,9 @@ do {
     case "/":
      result = divide(NUMBER1, NUMBER2);
       break;
+      
+      default:alert("Please enter only +,-,* or /")
+      continue;
   }
   alert(`${NUMBER1} ${operation} ${NUMBER2} = ${result}`);
 
